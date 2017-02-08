@@ -57,6 +57,8 @@ def getAnswer(answerFilename):
         slices = []
         for i in range(nSlice):
             row0, col0, row1, col1 = [int(x) for x in f.readline().split()]
+            if not(0<=row0<=row1 and 0<=col0<=col1):
+                showOutputError('invalid slice: ({},{})~({},{})'.format(row0, col0, row1, col1))
             slices.append([row0, col0, row1, col1])
 
     return nSlice, slices
@@ -92,6 +94,9 @@ def main():
     score = 0
 
     for r0,c0,r1,c1 in slices:
+        if not(r1<R and c1<C):
+            showError('invalid slice: ({},{})~({},{})'.format(r0, c0, r1, c1))
+
         if (r1-r0+1)*(c1-c0+1) > H:
             showError('too much cells in slice {},{},{},{}'.format(r0, c0, r1, c1))
 
