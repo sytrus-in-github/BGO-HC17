@@ -22,7 +22,7 @@ def getInput(inputFilename):
 
 
     with open(inputFilename, 'r') as f:
-        nRow, nCol, minGradient, maxCell = [int(x) for x in f.readline().split()]
+        nRow, nCol, minIngredient, maxCell = [int(x) for x in f.readline().split()]
         pizza = []
         for i,line in enumerate(f):
             i += 2
@@ -39,7 +39,7 @@ def getInput(inputFilename):
         if len(pizza) != nRow:
             showInputError('invalid number of lines')
 
-        return nRow, nCol, minGradient, maxCell, pizza
+        return nRow, nCol, minIngredient, maxCell, pizza
 
 
 
