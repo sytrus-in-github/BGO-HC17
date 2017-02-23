@@ -70,13 +70,21 @@ def cacheFillAll(ranks, scores, vidSizes, cacheMem):
 
 outDir = '../out/'
     
+def lst2str(l):
+    s = ''
+    for i in listofnumber:
+        s += ' '
+        s += str(i)
+        return s
+
 def outputFile(fills):
-    usefulfills = [l for l in fills in l]
+    usefulfills = [(i, l) for i,l in enumarate(fills) if l]
     nbuseful = len(usefulfills)
     with open(outDir+fileName,'w') as out:
         out.write(str(nbuseful)+'\n')
-        for l in usefulfills:
-            s = ''    
+        for i, l in usefulfills:
+            s = str(i)+ lst2str(l) +'\n'
+
 
 def caculate_sum(num_video, eps, num_cache, request):
     requestnum = len(request)
